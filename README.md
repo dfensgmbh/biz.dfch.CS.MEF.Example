@@ -19,12 +19,12 @@ This example shows the usage of the [Managed Extensibility Framework (MEF)](http
 
 ## Test the project
 
-1. Run the project.
-     A command window appears.
-2. Type addition or subtraction commands.
+1. Run the project
+2. A command window appears.
+3. Type addition or subtraction commands
   * 1+1
   * 1-2
-3. Try to type multiplication or division commands.
+4. Try to type multiplication or division commands
   * 1*2
   * 1/2
   
