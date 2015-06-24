@@ -5,7 +5,7 @@ This repository contains extended source code of the [Simple Calculator MEF Appl
 This example shows the usage of the [Managed Extensibility Framework (MEF)](https://msdn.microsoft.com/en-us/library/dd460648(v=vs.110).aspx)
 
 
-## Compile and run the project
+## Compilation
 
 1. Open `Program.cs`
 2. In the constructor, specify the path to the Extensions folder on your local computer
@@ -13,6 +13,9 @@ This example shows the usage of the [Managed Extensibility Framework (MEF)](http
   ```
   catalog.Catalogs.Add(New DirectoryCatalog("C:\\Users\\SomeUser\\Documents\\Visual Studio 2010\\Projects\\SimpleCalculator2\\SimpleCalculator2\\Extensions"))
   ```
+
+**HINT**: Every time a new part is added to the `Extensions` project it has to be rebuilt to make the part available to the calculator.
+
 
 ## Test the project
 
