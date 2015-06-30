@@ -106,7 +106,7 @@ namespace SimpleCalculator
 
     class Program
     {
-        private CompositionContainer _container;
+        private readonly CompositionContainer _container;
 
         [Import(typeof(ICalculator))]
         public ICalculator calculator;
@@ -162,7 +162,8 @@ namespace SimpleCalculator
         }
 
         // Exposes the calculators calculate function
-        public String Calculate(String s) {
+        public String Calculate(String s) 
+        {
             return this.calculator.Calculate(s);
         }
 
