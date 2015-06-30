@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExtendedOperations.cs" />
+    <Compile Include="Divide.cs" />
+    <Compile Include="Mod.cs" />
+    <Compile Include="Multiply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
