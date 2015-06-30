@@ -2,8 +2,8 @@
 using System.Linq;
 using System.ComponentModel.Composition;
 
-namespace ExtendedOperations {
-
+namespace ExtendedOperations
+{
     [Export(typeof(SimpleCalculator.IOperation))]
     [ExportMetadata("Symbol", '/')]
     public class Divide : SimpleCalculator.IOperation
