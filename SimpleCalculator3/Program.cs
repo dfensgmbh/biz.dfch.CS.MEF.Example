@@ -3,6 +3,7 @@ using System.Linq;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
+using System.Configuration;
 
 namespace SimpleCalculator
 {
@@ -13,43 +14,33 @@ namespace SimpleCalculator
         private readonly CompositionContainer _container;
 
         [Import(typeof(ICalculator))]
-        public ICalculator calculator;
+        public ICalculator Calculator;
 
         private Program()
         {
-            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            
+
             // An aggregate catalog that combines multiple catalogs
             var catalog = new AggregateCatalog();
 
-            // Adds all the parts found in the same assembly as the Program class
-            catalog.Catalogs.Add(new AssemblyCatalog(typeof(Program).Assembly));
             // Adds all the parts found in the given directory
+            var folder = ConfigurationManager.AppSettings["ExtensionsFolder"];
             try
             {
-                catalog.Catalogs.Add(new DirectoryCatalog("C:\\development\\projects\\GitHub\\biz.dfch.CS.MEF.Example\\SimpleCalculator3\\Extensions"));
+                if(!Path.IsPathRooted(folder))
+                {
+                    folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folder);
+                }
+                catalog.Catalogs.Add(new DirectoryCatalog(folder));
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                //N/A
+                System.Diagnostics.Trace.WriteLine(String.Format("WARNING: Loading extensions from '{0}' FAILED.", folder));
             }
-            try
+            finally
             {
-                catalog.Catalogs.Add(new DirectoryCatalog(Path.Combine(baseDirectory, "Extensions")));
+                // Adds all the parts found in the same assembly as the Program class
+                catalog.Catalogs.Add(new AssemblyCatalog(typeof(Program).Assembly));
             }
-            catch (Exception ex)
-            {
-                //N/A
-            }
-            try
-            {
-                catalog.Catalogs.Add(new DirectoryCatalog(Path.Combine(baseDirectory, "..", "..", "Extensions")));
-            }
-            catch (Exception ex)
-            {
-                //N/A
-            }
-
 
             // Create the CompositionContainer with the parts in the catalog
             _container = new CompositionContainer(catalog);
@@ -68,7 +59,7 @@ namespace SimpleCalculator
         // Exposes the calculators calculate function
         public String Calculate(String s) 
         {
-            return this.calculator.Calculate(s);
+            return this.Calculator.Calculate(s);
         }
 
 
