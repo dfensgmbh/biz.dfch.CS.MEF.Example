@@ -8,11 +8,13 @@ This example shows the usage of the [Managed Extensibility Framework (MEF)](http
 ## Compilation
 
 1. Open `Program.cs`
-2. In the constructor, specify the path to the Extensions folder on your local computer
+2. In the `app.config`, specify the path to the Extensions folder on your local computer
 
   ```
-  catalog.Catalogs.Add(New DirectoryCatalog("C:\\Users\\SomeUser\\Documents\\Visual Studio 2010\\Projects\\SimpleCalculator2\\SimpleCalculator2\\Extensions"))
+  <add key="ExtensionsFolder" value="Extensions"/>
   ```
+
+You can specify a relative or a full path and even reference parent paths such as `..\..\Extensions`.
 
 **HINT**: Every time a new part is added to the `Extensions` project it has to be rebuilt to make the part available to the calculator.
 
