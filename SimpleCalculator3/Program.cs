@@ -34,7 +34,7 @@ namespace SimpleCalculator
             }
             catch(Exception ex)
             {
-                System.Diagnostics.Trace.WriteLine(String.Format("WARNING: Loading extensions from '{0}' FAILED.", folder));
+                System.Diagnostics.Trace.WriteLine(String.Format("WARNING: Loading extensions from '{0}' FAILED.\n{1}", folder, ex.Message));
             }
             finally
             {
