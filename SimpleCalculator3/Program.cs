@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
+using System.Diagnostics;
+using System.IO;
 
 namespace SimpleCalculator
 {
@@ -111,13 +113,38 @@ namespace SimpleCalculator
 
         private Program()
         {
+            var baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            
             // An aggregate catalog that combines multiple catalogs
             var catalog = new AggregateCatalog();
 
             // Adds all the parts found in the same assembly as the Program class
             catalog.Catalogs.Add(new AssemblyCatalog(typeof(Program).Assembly));
             // Adds all the parts found in the given directory
-            catalog.Catalogs.Add(new DirectoryCatalog("C:\\development\\projects\\GitHub\\biz.dfch.CS.MEF.Example\\SimpleCalculator3\\Extensions"));
+            try
+            {
+                catalog.Catalogs.Add(new DirectoryCatalog("C:\\development\\projects\\GitHub\\biz.dfch.CS.MEF.Example\\SimpleCalculator3\\Extensions"));
+            }
+            catch (Exception ex)
+            {
+                //N/A
+            }
+            try
+            {
+                catalog.Catalogs.Add(new DirectoryCatalog(Path.Combine(baseDirectory, "Extensions")));
+            }
+            catch (Exception ex)
+            {
+                //N/A
+            }
+            try
+            {
+                catalog.Catalogs.Add(new DirectoryCatalog(Path.Combine(baseDirectory, "..", "..", "Extensions")));
+            }
+            catch (Exception ex)
+            {
+                //N/A
+            }
 
 
             // Create the CompositionContainer with the parts in the catalog
