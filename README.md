@@ -27,8 +27,5 @@ You can specify a relative or a full path and even reference parent paths such a
 3. Type addition or subtraction commands
   * 1+1
   * 1-2
-4. Try to type multiplication or division commands
-  * 1*2
-  * 1/2
   
-  The following message will be displayed: `Operation not found!`
+  Typing a not implemented operation symbol like 1^2 causes the message: `Operation not found!`
