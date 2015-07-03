@@ -1,3 +1,4 @@
+using System;
 using System.ComponentModel.Composition;
 
 namespace ExtendedOperations
@@ -8,7 +9,13 @@ namespace ExtendedOperations
     {
         public int Operate(int left, int right)
         {
-            return left * right;
+            long product = Math.BigMul(left, right);
+            long intMaxValue = int.MaxValue;
+            if (intMaxValue < product)
+            {
+                throw new OverflowException("Resulting product too large.");
+            }
+            return (int) product;
         }
     }
 }
