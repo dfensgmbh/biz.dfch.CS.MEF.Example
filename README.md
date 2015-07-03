@@ -1,4 +1,5 @@
-# MEF-example
+# MEF Example
+
 This repository contains extended source code of the [Simple Calculator MEF Application Simple calculator](https://code.msdn.microsoft.com/windowsdesktop/Simple-Calculator-MEF-1152654e)
 
 
