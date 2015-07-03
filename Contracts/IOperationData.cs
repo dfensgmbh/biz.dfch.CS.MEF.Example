@@ -1,6 +1,6 @@
 using System;
 
-namespace SimpleCalculator
+namespace Contracts
 {
     // this interface defines the data that will be imported 
     // along with the interface

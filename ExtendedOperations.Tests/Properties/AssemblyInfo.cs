@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("ExtendedOperations.Tests")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Tests for ExtendedOperations")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("d-fens GmbH")]
 [assembly: AssemblyProduct("ExtendedOperations.Tests")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
+[assembly: AssemblyCopyright("Copyright ©  2015 Ronald Rink, d-fens GmbH")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

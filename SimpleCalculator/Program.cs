@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Linq;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Configuration;
+using Contracts;
 
 namespace SimpleCalculator
 {
-
-
     class Program
     {
         private readonly CompositionContainer _container;
@@ -18,32 +16,8 @@ namespace SimpleCalculator
 
         private Program()
         {
-
-            // An aggregate catalog that combines multiple catalogs
-            var catalog = new AggregateCatalog();
-
-            // Adds all the parts found in the given directory
-            var folder = ConfigurationManager.AppSettings["ExtensionsFolder"];
-            try
-            {
-                if(!Path.IsPathRooted(folder))
-                {
-                    folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folder);
-                }
-                catalog.Catalogs.Add(new DirectoryCatalog(folder));
-            }
-            catch(Exception ex)
-            {
-                System.Diagnostics.Trace.WriteLine(String.Format("WARNING: Loading extensions from '{0}' FAILED.\n{1}", folder, ex.Message));
-            }
-            finally
-            {
-                // Adds all the parts found in the same assembly as the Program class
-                catalog.Catalogs.Add(new AssemblyCatalog(typeof(Program).Assembly));
-            }
-
             // Create the CompositionContainer with the parts in the catalog
-            _container = new CompositionContainer(catalog);
+            _container = new CompositionContainer(LoadParts());
 
             try
             {
@@ -54,6 +28,33 @@ namespace SimpleCalculator
             {
                 Console.WriteLine(compositionException.ToString());
             }
+        }
+
+        private AggregateCatalog LoadParts()
+        {
+            // An aggregate catalog that combines multiple catalogs
+            var catalog = new AggregateCatalog();
+
+            // Adds all the parts found in the given directory
+            var folder = ConfigurationManager.AppSettings["ExtensionsFolder"];
+            try
+            {
+                if (!Path.IsPathRooted(folder))
+                {
+                    folder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, folder);
+                }
+                catalog.Catalogs.Add(new DirectoryCatalog(folder));
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Trace.WriteLine(String.Format("WARNING: Loading extensions from '{0}' FAILED.\n{1}", folder, ex.Message));
+            }
+            finally
+            {
+                // Adds all the parts found in the same assembly as the Program class
+                catalog.Catalogs.Add(new AssemblyCatalog(typeof(Program).Assembly));
+            }
+            return catalog;
         }
 
         // Exposes the calculators calculate function

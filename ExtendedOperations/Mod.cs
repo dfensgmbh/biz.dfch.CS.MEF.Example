@@ -1,10 +1,11 @@
+using Contracts;
 using System.ComponentModel.Composition;
 
 namespace ExtendedOperations
 {
-    [Export(typeof(SimpleCalculator.IOperation))]
+    [Export(typeof(IOperation))]
     [ExportMetadata("Symbol", '%')]
-    public class Mod : SimpleCalculator.IOperation
+    public class Mod : IOperation
     {
         public int Operate(int left, int right)
         {

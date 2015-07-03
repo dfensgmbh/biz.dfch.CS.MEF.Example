@@ -14,6 +14,7 @@ namespace ExtendedOperations.Tests
             var result = operation.Operate(1, 0);
             Assert.IsNull(result);
         }
+
         [TestMethod]
         public void TestDivideExpects0()
         {
@@ -21,6 +22,7 @@ namespace ExtendedOperations.Tests
             var result = operation.Operate(1, 8);
             Assert.AreEqual(result, 0);
         }
+
         [TestMethod]
         public void TestDivideExpects2()
         {

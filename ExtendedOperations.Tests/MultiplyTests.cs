@@ -19,6 +19,7 @@ namespace ExtendedOperations.Tests
             long resultExpected2 = 6442450941;
             Assert.Equals(resultExpected2, result2);
         }
+
         [TestMethod]
         public void TestMultiplyExpectsMinus210()
         {
@@ -26,6 +27,7 @@ namespace ExtendedOperations.Tests
             var result = operation.Operate(5, -42);
             Assert.AreEqual(result, -210);
         }
+
         [TestMethod]
         public void TestMultiplyExpects32()
         {
@@ -33,6 +35,7 @@ namespace ExtendedOperations.Tests
             var result = operation.Operate(-4, -8);
             Assert.AreEqual(result, 32);
         }
+
         [TestMethod]
         public void TestMultiplyExpects0()
         {

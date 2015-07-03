@@ -1,11 +1,12 @@
+using Contracts;
 using System;
 using System.ComponentModel.Composition;
 
 namespace ExtendedOperations
 {
-    [Export(typeof(SimpleCalculator.IOperation))]
+    [Export(typeof(IOperation))]
     [ExportMetadata("Symbol", '*')]
-    public class Multiply : SimpleCalculator.IOperation
+    public class Multiply : IOperation
     {
         public int Operate(int left, int right)
         {

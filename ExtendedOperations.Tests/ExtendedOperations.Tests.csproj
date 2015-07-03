@@ -55,13 +55,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Contracts\Contracts.csproj">
+      <Project>{2dc67ed2-4bea-4be1-861e-8602fccb5a7e}</Project>
+      <Name>Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExtendedOperations\ExtendedOperations.csproj">
       <Project>{ee0f9efe-4835-415c-bd01-f8057488331f}</Project>
       <Name>ExtendedOperations</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SimpleCalculator3\SimpleCalculator.csproj">
-      <Project>{a645d270-05f0-42ee-b8f6-38509e5d7fa8}</Project>
-      <Name>SimpleCalculator</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

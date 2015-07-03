@@ -1,3 +1,4 @@
+using Contracts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -19,6 +20,7 @@ namespace SimpleCalculator
             int left;
             int right;
             Char operation;
+
             // finds the operator
             int fn = FindFirstNonDigit(input);
             if (fn < 0)

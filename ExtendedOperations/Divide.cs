@@ -1,12 +1,11 @@
-﻿using System;
-using System.Linq;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
+using Contracts;
 
 namespace ExtendedOperations
 {
-    [Export(typeof(SimpleCalculator.IOperation))]
+    [Export(typeof(IOperation))]
     [ExportMetadata("Symbol", '/')]
-    public class Divide : SimpleCalculator.IOperation
+    public class Divide : IOperation
     {
         public int Operate(int left, int right)
         {

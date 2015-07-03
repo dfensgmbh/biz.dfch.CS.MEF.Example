@@ -1,7 +1,9 @@
 /**
  * Operation interface definition
  **/
-namespace SimpleCalculator
+using System;
+
+namespace Contracts
 {
     // this interface defines how to import and export extensions
     // in a real life project this interface definition would 

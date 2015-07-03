@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ExtendedOperations")]
-[assembly: AssemblyDescription("MEF Parts")]
+[assembly: AssemblyTitle("Contracts")]
+[assembly: AssemblyDescription("Interfaces for MEF parts")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Microsoft")]
-[assembly: AssemblyProduct("ExtendedOperations")]
-[assembly: AssemblyCopyright("Copyright © Microsoft 2010")]
+[assembly: AssemblyCompany("d-fens GmbH")]
+[assembly: AssemblyProduct("Contracts")]
+[assembly: AssemblyCopyright("Copyright ©  2015 Ronald Rink, d-fens GmbH")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1de8fb8b-666f-4aa1-b477-18e11f385487")]
+[assembly: Guid("958f2abe-6901-4479-bc1a-aa086b83f02f")]
 
 // Version information for an assembly consists of the following four values:
 //
