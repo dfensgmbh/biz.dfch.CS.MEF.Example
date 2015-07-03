@@ -13,5 +13,7 @@ namespace Contracts
     public interface IOperationData
     {
         Char Symbol { get; }
+
+        String OperationName { get; }
     }
 }

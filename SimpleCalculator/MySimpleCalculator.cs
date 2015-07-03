@@ -42,7 +42,7 @@ namespace SimpleCalculator
             foreach (Lazy<IOperation, IOperationData> i in operations)
             {
                 if (i.Metadata.Symbol.Equals(operation))
-                    return i.Value.Operate(left, right).ToString();
+                    return String.Format("{0}-Result = {1}", i.Metadata.OperationName, i.Value.Operate(left, right).ToString());
             }
             return "Operation Not Found!";
         }

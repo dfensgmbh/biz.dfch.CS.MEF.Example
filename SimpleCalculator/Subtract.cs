@@ -9,6 +9,7 @@ namespace SimpleCalculator
      **/
     [Export(typeof(IOperation))]
     [ExportMetadata("Symbol", '-')]
+    [ExportMetadata("OperationName", "Substraction")]
     class Subtract : IOperation
     {
         public int Operate(int left, int right)

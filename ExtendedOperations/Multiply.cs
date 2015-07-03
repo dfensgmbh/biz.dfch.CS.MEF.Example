@@ -6,6 +6,7 @@ namespace ExtendedOperations
 {
     [Export(typeof(IOperation))]
     [ExportMetadata("Symbol", '*')]
+    [ExportMetadata("OperationName", "Multiplication")]
     public class Multiply : IOperation
     {
         public int Operate(int left, int right)
